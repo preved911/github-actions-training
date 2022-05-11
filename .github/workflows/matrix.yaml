@@ -23,7 +23,7 @@ jobs:
               };
               print("]")
             }')
-          echo NAMES=$NAMES >> GITHUB_ENV
+          echo NAMES=$NAMES >> $GITHUB_ENV
 
     outputs:
       names: ${{ env.NAMES }}
