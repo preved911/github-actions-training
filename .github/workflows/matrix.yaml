@@ -14,7 +14,7 @@ jobs:
     steps:
       - id: matrix
         run: |
-          echo "${{ github.event.inputs.names }}" | \
+          NAMES=$(echo "${{ github.event.inputs.names }}" | \
             awk '{
               split($0, array, ",");
               printf("[\"%s", array[1]);
@@ -22,10 +22,11 @@ jobs:
                 printf(", \"%s\"", array[i])
               };
               print("]")
-            }'
+            }')
+          echo NAMES=$NAMES >> GITHUB_ENV
 
     outputs:
-      names: ${{ steps.matrix.outputs.names }}
+      names: ${{ env.NAMES }}
 
   test:
     runs-on: ubuntu-latest
