@@ -1,4 +1,4 @@
-name: restar all rtc pods in the cluster
+name: test matrix
 
 on:
   workflow_dispatch:
