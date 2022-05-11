@@ -9,10 +9,10 @@ on:
         default: one,two,three
 
 jobs:
-  names:
+  matrix:
     runs-on: ubuntu-latest
     steps:
-      - id: matrix
+      - id: names
         run: |
           NAMES=$(echo "${{ github.event.inputs.names }}" | \
             awk '{
@@ -23,10 +23,10 @@ jobs:
               };
               print("]")
             }')
-          echo "::set-output name=names::$(echo $NAMES)"
+          echo "::set-output name=list::$(echo $NAMES)"
 
     outputs:
-      names: ${{ steps.matrix.outputs.names }}
+      names: ${{ steps.names.outputs.list }}
 
   test:
     runs-on: ubuntu-latest
