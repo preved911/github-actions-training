@@ -13,17 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: matrix
-        run: echo "::set-output name=names::$(
-          echo \"${{ github.event.inputs.names }}\" | \
+        run: |
+          echo "${{ github.event.inputs.names }}" | \
             awk '{
-              split($0, array, \",\");
-              printf(\"[\\\"%s\", array[1]);
+              split($0, array, ",");
+              printf(\"[\"%s", array[1]);
               for (i=2; i <= length(array); i++) {
-                printf(\", \\\"%s\\\"\", array[i])
+                printf(", \"%s\"", array[i])
               };
-              print(\"]\")
+              print("]")
             }'
-        )"
 
     outputs:
       names: ${{ steps.matrix.outputs.names }}
