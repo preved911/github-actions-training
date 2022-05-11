@@ -14,15 +14,15 @@ jobs:
     steps:
       - id: names
         run: |
-          echo "::set-output name=list::'$(echo "${{ github.event.inputs.names }}" | \
+          echo "::set-output name=list::\"$(echo "${{ github.event.inputs.names }}" | \
             awk '{
               split($0, array, ",");
-              printf("[\"%s\"", array[1]);
+              printf("[\\\"%s\\\"", array[1]);
               for (i=2; i <= length(array); i++) {
-                printf(", \"%s\"", array[i])
+                printf(", \\\"%s\\\"", array[i])
               };
-              print("])
-            }')'"
+              print("]")
+            }')\""
 
     outputs:
       names: ${{ steps.names.outputs.list }}
