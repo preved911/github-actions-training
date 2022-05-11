@@ -17,11 +17,11 @@ jobs:
           echo "::set-output name=list::$(echo "${{ github.event.inputs.names }}" | \
             awk '{
               split($0, array, ",");
-              printf("\"[\\\"%s\\\"", array[1]);
+              printf("[\"%s\"", array[1]);
               for (i=2; i <= length(array); i++) {
-                printf(", \\\"%s\\\"", array[i])
+                printf(", \"%s\"", array[i])
               };
-              print("]\"")
+              print("])
             }')"
 
     outputs:
@@ -32,8 +32,7 @@ jobs:
     needs: matrix
     strategy:
       matrix:
-        # name: ${{ fromJson(needs.matrix.outputs.names) }}
-        name: ${{ fromJson('["one", "two", "three"]') }}
+        name: ${{ fromJson(needs.matrix.outputs.names) }}
 
     steps:
       - run: echo ${{ matrix.name }}
