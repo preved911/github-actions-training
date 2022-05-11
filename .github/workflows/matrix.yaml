@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: names
-        run: echo "::set-output name=list::[\"one\"]"
+        run: echo "::set-output name=list::[\"one\", \"two\"]"
         # run: |
         #   echo "::set-output name=list::$(echo "${{ github.event.inputs.names }}" | \
         #     awk '{
