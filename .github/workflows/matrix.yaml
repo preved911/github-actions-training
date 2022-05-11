@@ -32,7 +32,8 @@ jobs:
     needs: matrix
     strategy:
       matrix:
-        name: ${{ fromJson(needs.matrix.outputs.names) }}
+        # name: ${{ fromJson(needs.matrix.outputs.names) }}
+        name: ${{ fromJson('["one"]') }}
 
     steps:
       - run: echo ${{ matrix.name }}
