@@ -25,6 +25,8 @@ jobs:
             }')
           echo "::set-output name=list::$(echo $NAMES)"
 
+      - run: echo "${{ steps.names.outputs.list }}"
+
     outputs:
       names: ${{ steps.names.outputs.list }}
 
