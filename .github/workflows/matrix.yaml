@@ -40,5 +40,6 @@ jobs:
         name: ${{ fromJson(needs.names.outputs.items) }}
 
     steps:
+      - run: echo '${{ needs.names.outputs.names }}'
+      - run: echo '${{ needs.names.outputs.last }}'
       - run: echo ${{ matrix.name }}
-      - run: echo ${{ needs.names.outputs.last }}
