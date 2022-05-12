@@ -30,7 +30,7 @@ jobs:
 
     outputs:
       names: ${{ steps.items.outputs.value }}
-      names: ${{ steps.last.outputs.value }}
+      last: ${{ steps.last.outputs.value }}
 
   test:
     runs-on: ubuntu-latest
