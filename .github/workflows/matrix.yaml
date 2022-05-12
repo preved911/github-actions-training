@@ -43,3 +43,4 @@ jobs:
     steps:
       - run: echo ${{ matrix.name }}
       - run: sleep 1m
+        if: ${{ matrix.name != needs.names.outputs.last }}
