@@ -42,4 +42,4 @@ jobs:
 
     steps:
       - run: echo ${{ matrix.name }}
-      - run: sleep 5m
+      - run: sleep 1m
