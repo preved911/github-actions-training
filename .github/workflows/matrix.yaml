@@ -40,7 +40,6 @@ jobs:
         name: ${{ fromJson(needs.names.outputs.items) }}
 
     steps:
-      - run: echo '${{ needs.names.outputs.items }}'
-      - run: echo '${{ fromJson(needs.names.outputs.items) }}'
-      - run: echo '${{ needs.names.outputs.last }}'
       - run: echo ${{ matrix.name }}
+      - run: sleep 5m
+        if: ${{ matrix.name }} == ${{ needs.names.outputs.last }}
