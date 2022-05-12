@@ -29,17 +29,17 @@ jobs:
           echo "::set-output name=value::$(echo '${{ github.event.inputs.names }}' | awk -F ',' '{print $NF}')"
 
     outputs:
-      names: ${{ steps.items.outputs.value }}
+      items: ${{ steps.items.outputs.value }}
       last: ${{ steps.last.outputs.value }}
 
   test:
     runs-on: ubuntu-latest
     needs: names
-    # strategy:
-    #   matrix:
-    #     name: ${{ fromJson(needs.names.outputs.items) }}
+    strategy:
+      matrix:
+        name: ${{ fromJson(needs.names.outputs.items) }}
 
     steps:
-      - run: echo '${{ needs.names.outputs.names }}'
+      - run: echo '${{ needs.names.outputs.items }}'
       - run: echo '${{ needs.names.outputs.last }}'
       # - run: echo ${{ matrix.name }}
