@@ -26,7 +26,7 @@ jobs:
 
       - id: last
         run: |
-          echo "::set-output name=value::$(echo '${{ github.event.inputs.names }}' | awk -F ', '{print $NF}')"
+          echo "::set-output name=value::$(echo '${{ github.event.inputs.names }}' | awk -F ',' '{print $NF}')"
 
     outputs:
       names: ${{ steps.items.outputs.value }}
