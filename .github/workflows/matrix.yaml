@@ -35,9 +35,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: names
-    strategy:
-      matrix:
-        name: ${{ fromJson(needs.names.outputs.items) }}
+    # strategy:
+    #   matrix:
+    #     name: ${{ fromJson(needs.names.outputs.items) }}
 
     steps:
       - run: echo '${{ needs.names.outputs.items }}'
