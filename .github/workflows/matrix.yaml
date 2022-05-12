@@ -36,10 +36,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: names
     strategy:
+      max-parallel: 1
       matrix:
         name: ${{ fromJson(needs.names.outputs.items) }}
 
     steps:
       - run: echo ${{ matrix.name }}
       - run: sleep 5m
-        if: ${{ matrix.name }} == ${{ needs.names.outputs.last }}
