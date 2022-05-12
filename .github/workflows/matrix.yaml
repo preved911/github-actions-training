@@ -3,6 +3,10 @@ name: test matrix
 on:
   workflow_dispatch:
     inputs:
+      delay:
+        description: delay between matrix job execution
+        required: true
+        default: 10s
       names:
         description: comma separated names
         required: true
@@ -42,5 +46,6 @@ jobs:
 
     steps:
       - run: echo ${{ matrix.name }}
-      - run: sleep 1m
-        if: ${{ matrix.name != needs.names.outputs.last }}
+
+      - if: ${{ matrix.name != needs.names.outputs.last }}
+        run: sleep ${{ github.event.inputs.delay }}
