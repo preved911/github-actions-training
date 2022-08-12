@@ -10,7 +10,7 @@ on:
 jobs:
   packer:
     if: github.event.pull_request.merged == true &&
-        startsWith(github.event.pull_request.head.ref, 'pr\/prefixed\/'
+        startsWith(github.event.pull_request.head.ref, 'pr/prefixed/')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
