@@ -1,7 +1,7 @@
 name: testing PR's merging behaviour (third step)
 
 on:
-  pull_request:
+  pull_request_target:
     types:
       - closed
     branches:
