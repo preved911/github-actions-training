@@ -1,11 +1,11 @@
-name: testing PR's merging behaviour (second step)
+name: testing PR's merging behaviour (third step)
 
 on:
   pull_request:
     types:
       - closed
     branches:
-      - 'pr/*'
+      - main
 
 jobs:
   packer:
