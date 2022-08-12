@@ -21,4 +21,4 @@ jobs:
           git --no-pager log -n 1 --decorate
 
       - run: |
-          echo "${{ toJson(github.event.pull_request) }}"
+          echo "${{ github.event.pull_request.head.ref }}"
