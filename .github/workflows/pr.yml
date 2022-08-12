@@ -1,0 +1,21 @@
+name: testing PR's merging behaviour
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - 'pr/*'
+
+jobs:
+  packer:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - run: |
+          git --no-pager log -n 1 --decorate
