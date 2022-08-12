@@ -1,4 +1,4 @@
-name: testing PR's merging behaviour
+name: testing PR's merging behaviour (second step)
 
 on:
   pull_request:
