@@ -1,0 +1,14 @@
+name: testing run step env vars behaviour
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    - env:
+        FIRST: one
+
+    - run:
+        declare -xp
+      env:
+        SECOND: two
