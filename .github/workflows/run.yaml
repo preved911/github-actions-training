@@ -5,10 +5,10 @@ on:
 
 jobs:
   test:
-    steps:
-      env:
-        FIRST: one
+    env:
+      FIRST: one
 
+    steps:
       - run:
           declare -xp
         env:
