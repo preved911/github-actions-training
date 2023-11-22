@@ -6,8 +6,8 @@ on:
 jobs:
   test:
     steps:
-      - env:
-          FIRST: one
+      env:
+        FIRST: one
 
       - run:
           declare -xp
