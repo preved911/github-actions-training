@@ -12,6 +12,8 @@ jobs:
       with:
         node-version: 14
     - run: npm install
-    - run: npm run test
+    - run: |
+        cd nodejs
+        npm run test
       env:
         TEST_KEY: ${{ secrets.TEST_KEY }}
